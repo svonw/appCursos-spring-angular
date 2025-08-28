@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,12 @@ public class GenericController<E, S extends GenericService<E>> {
 		return ResponseEntity.ok().body(service.findAll());
 		// responseentity es un iterable del tipo que sea por eso la ?, al body que es
 		// lo que recibe la respuesta le estamos pasando la lista que devuelve findAll.
+	}
+
+	@GetMapping("/pag")
+	public ResponseEntity<?> listar(Pageable pageable) {
+		return ResponseEntity.ok().body(service.findAll(pageable));
+
 	}
 
 	@GetMapping("/{id}") // con los {} recogemos el id que es un parametro variable

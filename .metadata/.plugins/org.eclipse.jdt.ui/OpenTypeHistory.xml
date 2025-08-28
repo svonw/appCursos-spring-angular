@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=microservicios-usuarios/\/Users\/sara\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/3.4.5\/spring-data-commons-3.4.5.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/3.4.5=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.repository(CrudRepository.class[CrudRepository" modifiers="1537" timestamp="1745311866000"/>
-    <typeInfo handle="=microservicios-usuarios/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.udemyfullstack.microservicios.app.usuarios.services{AlumnoService.java[AlumnoService" modifiers="513" timestamp="1754053035000"/>
-    <typeInfo handle="=generic-microservicios/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.udemyfullstack.microservicios.generic.service{GenericService.java[GenericService" modifiers="513" timestamp="1753351276000"/>
-    <typeInfo handle="=generic-microservicios/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.udemyfullstack.microservicios.generic.service{GenericServiceImpl.java[GenericServiceImpl" modifiers="1" timestamp="1753352233000"/>
-    <typeInfo handle="=microservicios-examenes/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.udemyfullstack.microservicios.app.examenes.services{ExamenService.java[ExamenService" modifiers="513" timestamp="1755275418000"/>
-</typeInfoHistroy>

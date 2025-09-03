@@ -24,3 +24,7 @@ spring:
           uri: lb://microservicios-examenes
           predicates:
             - Path=/api/examenes/**
+        - id: microservicio-respuestas
+          uri: lb://microservicios-respuestas
+          predicates:
+            - Path=/api/respuestas/**

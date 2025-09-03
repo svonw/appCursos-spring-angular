@@ -200,16 +200,8 @@ microservicios_test_udemy/
 ## 🛠️ Development Setup
 
 1. **Clone the repository**
-2. **Copy environment templates**:
-   ```bash
-   # For each microservice
-   cd microservicios-usuarios && cp .env.example .env
-   cd ../microservicios-cursos && cp .env.example .env
-   cd ../microservicios-examenes && cp .env.example .env
-   cd ../microservicios-respuestas && cp .env.example .env
-   ```
-3. **Configure your database credentials** in each `.env` file
-4. **Follow the installation and running steps above**
+2. **Configure your database credentials** in each `.env` file
+3. **Follow the installation and running steps above**
 
 ## 🔍 Troubleshooting
 

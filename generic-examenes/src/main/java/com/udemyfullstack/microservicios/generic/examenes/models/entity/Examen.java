@@ -19,6 +19,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -40,14 +41,17 @@ public class Examen {
 
 	@JsonIgnoreProperties(value = { "examen" }, allowSetters = true)
 	@OneToMany(mappedBy = "examen", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotNull
 	private List<Pregunta> preguntas;
+
+	@Transient
+	private boolean respondido;
 
 	public Examen() {
 		this.preguntas = new ArrayList();
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@NotNull
 	private Asignatura asignatura;
 
 	@PrePersist
@@ -117,6 +121,14 @@ public class Examen {
 		}
 		Examen a = (Examen) obj;
 		return this.id != null && this.id.equals(a.getId());
+	}
+
+	public boolean isRespondido() {
+		return respondido;
+	}
+
+	public void setRespondido(boolean respondido) {
+		this.respondido = respondido;
 	}
 
 }

@@ -77,8 +77,8 @@ spring.datasource.url=${DB_URL}
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-spring.jpa.hibernate.ddl-auto=create
+spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
+spring.jpa.generate-ddl=true
 ```
 
 ### 4. Build Project
@@ -147,6 +147,9 @@ All endpoints are available through the Gateway at
 - `POST /api/alumnos` - Create student
 - `PUT /api/alumnos/{id}` - Update student
 - `DELETE /api/alumnos/{id}` - Delete student
+- `GET /api/alumnos/uploads/img/{id}` - Get student photo
+- `POST /api/alumnos/crear-con-foto` - Create student with photo
+- `PUT /api/alumnos/editar-con-foto/{id}` - Update student with photo
 
 ### Courses
 - `GET /api/cursos` - List courses
@@ -163,11 +166,9 @@ All endpoints are available through the Gateway at
 - `DELETE /api/examenes/{id}` - Delete exam
 
 ### Answers
-- `GET /api/respuestas` - List answers
-- `GET /api/respuestas/{id}` - Get answer by ID
-- `POST /api/respuestas` - Create answer
-- `PUT /api/respuestas/{id}` - Update answer
-- `DELETE /api/respuestas/{id}` - Delete answer
+- `POST /api/respuestas` - Create answers (batch)
+- `GET /api/respuestas/alumno/{alumnoId}/examen/{examenId}` - Get answers by student and exam
+- `GET /api/respuestas/alumno/{alumnoId}/examenes-respondidos` - Get exams answered by student
 
 ## 📊 Monitoring
 
@@ -195,7 +196,7 @@ microservicios_test_udemy/
 
 - **Eureka Server**: 8761
 - **Gateway**: 8090
-- **Other microservices**: Dynamic ports (automatically configured)
+- **Other microservices**: Dynamic ports using `${PORT:0}` (automatically configured by Eureka)
 
 ## 🛠️ Development Setup
 

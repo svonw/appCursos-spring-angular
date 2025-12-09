@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;microservicios-gateway&apos;" deleteContents="true" description="Delete resource &apos;microservicios-gateway&apos;" element1="/microservicios-gateway" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1753280744485"/>&#x0A;<refactoring comment="Delete resource &apos;microservicios-zuul&apos;" deleteContents="true" description="Delete resource &apos;microservicios-zuul&apos;" element1="/microservicios-zuul" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1753288353464"/>
-</session>

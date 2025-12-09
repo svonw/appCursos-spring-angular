@@ -1,9 +1,0 @@
-package com.udemyfullstack.microservicios.app.usuarios.models.entity;
-
-import jakarta.persistence.Entity;
-
-@Entity
-@Table(name = "usuarios")
-public class Alumno {
-
-}

@@ -20,3 +20,11 @@ spring:
           uri: lb://microservicios-cursos
           predicates:
             - Path=/api/cursos/**
+        - id: microservicio-examenes
+          uri: lb://microservicios-examenes
+          predicates:
+            - Path=/api/examenes/**
+        - id: microservicio-respuestas
+          uri: lb://microservicios-respuestas
+          predicates:
+            - Path=/api/respuestas/**

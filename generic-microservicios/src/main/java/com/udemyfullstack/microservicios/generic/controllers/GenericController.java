@@ -1,10 +1,14 @@
 package com.udemyfullstack.microservicios.generic.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.udemyfullstack.microservicios.generic.service.GenericService;
+
+import jakarta.validation.Valid;
 
 public class GenericController<E, S extends GenericService<E>> {
 
@@ -25,6 +31,12 @@ public class GenericController<E, S extends GenericService<E>> {
 		// lo que recibe la respuesta le estamos pasando la lista que devuelve findAll.
 	}
 
+	@GetMapping("/pag")
+	public ResponseEntity<?> listar(Pageable pageable) {
+		return ResponseEntity.ok().body(service.findAll(pageable));
+
+	}
+
 	@GetMapping("/{id}") // con los {} recogemos el id que es un parametro variable
 	public ResponseEntity<?> ver(@PathVariable Long id) {
 
@@ -36,7 +48,10 @@ public class GenericController<E, S extends GenericService<E>> {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> crear(@RequestBody E entity) {
+	public ResponseEntity<?> crear(@Valid @RequestBody E entity, BindingResult result) {
+		if (result.hasErrors()) {
+			return this.validar(result);
+		}
 		E alumnoDb = service.save(entity);
 		return ResponseEntity.status(HttpStatus.CREATED).body(alumnoDb);
 
@@ -47,6 +62,14 @@ public class GenericController<E, S extends GenericService<E>> {
 		service.deleteById(id);
 		return ResponseEntity.noContent().build();
 
+	}
+
+	protected ResponseEntity<?> validar(BindingResult result) {
+		Map<String, Object> errores = new HashMap<>();
+		result.getFieldErrors().forEach(err -> {
+			errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
+		});
+		return ResponseEntity.badRequest().body(errores);
 	}
 
 }

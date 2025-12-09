@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EntityScan({ "com.udemyfullstack.microservicios.generic.alumnos.models.entity",
+		"com.udemyfullstack.microservicios.generic.examenes.models.entity",
 		"com.udemyfullstack.microservicios.app.cursos.models.entity" })
 public class MicroserviciosCursosApplication {
 
